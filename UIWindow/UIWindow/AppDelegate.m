@@ -7,6 +7,8 @@
 //
 
 /**
+ 这个Demo无storyboard文件，要在项目的TARGETS中的General中的Deployment Info中的Main Interface后面填空，代表不用storyboard文件。
+ 
  没有storyboard文件的程序的启动过程为：
  1、程序运行后首先调用main.m文件中的main函数；
  2、在main函数中调用UIApplicationMain函数；
@@ -38,22 +40,19 @@
     // Override point for customization after application launch.
     
     /**
+     1、创建程序的窗口：
      UIWindow类代表的是程序的窗口，窗口可以单独显示，也可以在窗口上再叠加一个视图控制器的View，这样显示的就是那个叠加在最外层的视图控制器的View了；
      一个程序理论上可以创建无数多个窗口，但是默认一个程序只有一个窗口。
      */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor redColor];
     
-    /**
-     设置window为主窗口并且可见。
-     */
-    [self.window makeKeyAndVisible];
-    
-    /**
-     设置视图控制器是窗口的根控制器。
-     */
+    //2、设置窗口的根视图控制器：
     ViewController *viewController = [[ViewController alloc] init];
     self.window.rootViewController = viewController;
+    
+    //3、设置window为主窗口并可见:
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
